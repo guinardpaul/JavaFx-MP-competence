@@ -5,29 +5,51 @@
  */
 package mpcompetences.controller.eleve;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.fxml.Initializable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import mpcompetences.MainApp;
+import mpcompetences.model.Eleve;
 
 /**
  * FXML Controller class
  *
  * @author Paul
  */
-public class EleveOverviewController implements Initializable {
+public class EleveOverviewController {
 
     private MainApp mainApp;
+    private final ObservableList<Eleve> eleveData = FXCollections.observableArrayList();
+    @FXML
+    private TableView<Eleve> eleveTableView;
+    @FXML
+    private TableColumn<Eleve, String> nomColumn;
+    @FXML
+    private TableColumn<Eleve, String> prenomColumn;
+    @FXML
+    private TableColumn<Eleve, String> classeColumn;
+    @FXML
+    private Label nomLabel;
+    @FXML
+    private Label prenomLabel;
+    @FXML
+    private Label classeLabel;
 
     /**
      * Initializes the controller class.
      */
-    @Override
-    public void initialize (URL url, ResourceBundle rb) {
-        // TODO
+    @FXML
+    public void initialize() {
+        nomColumn.setCellValueFactory(cellData -> cellData.getValue().nomProperty());
+        prenomColumn.setCellValueFactory(cellData -> cellData.getValue().prenomProperty());
+        classeColumn.setCellValueFactory(cellData -> cellData.getValue().classeProperty());
+
     }
 
-    public void setMainApp (MainApp mainApp) {
+    public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
     }
 

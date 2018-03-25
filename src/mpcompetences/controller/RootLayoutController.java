@@ -17,6 +17,7 @@ import mpcompetences.controller.classe.ClasseOverviewController;
 import mpcompetences.controller.competence.CompetenceOverviewController;
 import mpcompetences.controller.eleve.EleveOverviewController;
 import mpcompetences.controller.resultat.ResultatOverviewController;
+import mpcompetences.model.BUTTONNAME;
 
 /**
  * FXML Controller class
@@ -36,7 +37,7 @@ public class RootLayoutController {
     @FXML
     private BottomNavigationButton resultatMenuButton;
 
-    public RootLayoutController () {
+    public RootLayoutController() {
     }
 
     /**
@@ -44,20 +45,32 @@ public class RootLayoutController {
      *
      * @param mainApp
      */
-    public void setMainApp (MainApp mainApp) {
+    public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
         handleMenuClasse();
+    }
+
+    public void setMenuButtonSelected(String buttonName) {
+        if (buttonName == BUTTONNAME.Eleve.getNom()) {
+            eleveMenuButton.setSelected(true);
+        } else if (buttonName == BUTTONNAME.Classe.getNom()) {
+            classeMenuButton.setSelected(true);
+        } else if (buttonName == BUTTONNAME.Competence.getNom()) {
+            competenceMenuButton.setSelected(true);
+        } else if (buttonName == BUTTONNAME.Resultat.getNom()) {
+            resultatMenuButton.setSelected(true);
+        }
     }
 
     /**
      * Initializes the controller class.
      */
     @FXML
-    public void initialize () {
+    public void initialize() {
     }
 
     @FXML
-    private void handleMenuClasse () {
+    private void handleMenuClasse() {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(this.getClass().getResource(VIEWS_DIR + "classe/ClasseOverview.fxml"));
@@ -69,13 +82,14 @@ public class RootLayoutController {
             // Give the controller access to the main app.
             ClasseOverviewController controller = loader.getController();
             controller.setMainApp(mainApp);
+            controller.setRootController(this);
         } catch (IOException ex) {
             Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     @FXML
-    private void handleMenuEleve () {
+    private void handleMenuEleve() {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(this.getClass().getResource(VIEWS_DIR + "eleve/EleveOverview.fxml"));
@@ -92,7 +106,7 @@ public class RootLayoutController {
     }
 
     @FXML
-    private void handleMenuCompetence () {
+    private void handleMenuCompetence() {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(this.getClass().getResource(VIEWS_DIR + "competence/CompetenceOverview.fxml"));
@@ -109,7 +123,7 @@ public class RootLayoutController {
     }
 
     @FXML
-    private void handleMenuResultat () {
+    private void handleMenuResultat() {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(this.getClass().getResource(VIEWS_DIR + "resultat/ResultatOverview.fxml"));

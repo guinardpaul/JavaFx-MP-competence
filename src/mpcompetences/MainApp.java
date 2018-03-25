@@ -21,12 +21,12 @@ import mpcompetences.controller.RootLayoutController;
  */
 public class MainApp extends Application {
 
-    private final String VIEWS_DIR = "/mpcompetences/views/";
+    public static final String VIEWS_DIR = "/mpcompetences/views/";
     private Stage primaryStage;
     public BorderPane rootLayout;
 
     @Override
-    public void start (Stage primaryStage) {
+    public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("MP-Competences");
         this.primaryStage.setMaximized(true);
@@ -34,7 +34,7 @@ public class MainApp extends Application {
         initRootLayout();
     }
 
-    private void initRootLayout () {
+    private void initRootLayout() {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(this.getClass().getResource(VIEWS_DIR + "RootLayout.fxml"));
@@ -56,7 +56,7 @@ public class MainApp extends Application {
     /**
      * @param args the command line arguments
      */
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         launch(args);
     }
 

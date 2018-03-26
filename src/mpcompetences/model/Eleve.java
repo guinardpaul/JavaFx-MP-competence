@@ -5,6 +5,8 @@
  */
 package mpcompetences.model;
 
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -16,51 +18,53 @@ public class Eleve {
 
     private final StringProperty nom;
     private final StringProperty prenom;
-    private final StringProperty classe;
+    //  private final StringProperty classe;
+    private final ObjectProperty<Classe> classe;
 
-    public Eleve() {
+    public Eleve () {
         this(null, null, null);
     }
 
-    public Eleve(String nom, String prenom, String classe) {
+    public Eleve (String nom, String prenom, Classe classe) {
         this.nom = new SimpleStringProperty(nom);
         this.prenom = new SimpleStringProperty(prenom);
-        this.classe = new SimpleStringProperty(classe);
+        this.classe = new SimpleObjectProperty<>(classe);
+        //   this.classe = new SimpleStringProperty(classe);
     }
 
-    public String getClasse() {
+    public Classe getClasse () {
         return classe.get();
     }
 
-    public void setClasse(String value) {
+    public void setClasse (Classe value) {
         classe.set(value);
     }
 
-    public StringProperty classeProperty() {
+    public ObjectProperty classeProperty () {
         return classe;
     }
 
-    public String getPrenom() {
+    public String getPrenom () {
         return prenom.get();
     }
 
-    public void setPrenom(String value) {
+    public void setPrenom (String value) {
         prenom.set(value);
     }
 
-    public StringProperty prenomProperty() {
+    public StringProperty prenomProperty () {
         return prenom;
     }
 
-    public String getNom() {
+    public String getNom () {
         return nom.get();
     }
 
-    public void setNom(String value) {
+    public void setNom (String value) {
         nom.set(value);
     }
 
-    public StringProperty nomProperty() {
+    public StringProperty nomProperty () {
         return nom;
     }
 

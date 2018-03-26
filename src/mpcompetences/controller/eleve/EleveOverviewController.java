@@ -12,7 +12,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import mpcompetences.MainApp;
+import mpcompetences.model.Classe;
 import mpcompetences.model.Eleve;
+import mpcompetences.model.enums.CYCLE;
 
 /**
  * FXML Controller class
@@ -30,7 +32,7 @@ public class EleveOverviewController {
     @FXML
     private TableColumn<Eleve, String> prenomColumn;
     @FXML
-    private TableColumn<Eleve, String> classeColumn;
+    private TableColumn<Eleve, Classe> classeColumn;
     @FXML
     private Label nomLabel;
     @FXML
@@ -42,15 +44,40 @@ public class EleveOverviewController {
      * Initializes the controller class.
      */
     @FXML
-    public void initialize() {
+    public void initialize () {
         nomColumn.setCellValueFactory(cellData -> cellData.getValue().nomProperty());
         prenomColumn.setCellValueFactory(cellData -> cellData.getValue().prenomProperty());
         classeColumn.setCellValueFactory(cellData -> cellData.getValue().classeProperty());
 
+        initEleveTableData();
     }
 
-    public void setMainApp(MainApp mainApp) {
+    public void setMainApp (MainApp mainApp) {
         this.mainApp = mainApp;
+    }
+
+    public void initEleveTableData () {
+        eleveData.add(new Eleve("GUINARD", "Paul", new Classe("6°", CYCLE.Cycle3.getNom())));
+        eleveData.add(new Eleve("toto", "Paul", new Classe("6°", CYCLE.Cycle3.getNom())));
+        eleveData.add(new Eleve("TUTU", "Paul", new Classe("6°", CYCLE.Cycle3.getNom())));
+        eleveData.add(new Eleve("TITI", "Paul", new Classe("6°", CYCLE.Cycle3.getNom())));
+        eleveTableView.setItems(eleveData);
+
+        showEleveData(null);
+        eleveTableView.getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldvalue, newvalue) -> showEleveData(newvalue));
+    }
+
+    public void showEleveData (Eleve eleve) {
+        if (eleve != null) {
+            nomLabel.setText(eleve.getNom());
+            prenomLabel.setText(eleve.getPrenom());
+            classeLabel.setText(eleve.getClasse().getNomClasse());
+        } else {
+            nomLabel.setText("");
+            prenomLabel.setText("");
+            classeLabel.setText("");
+        }
     }
 
 }

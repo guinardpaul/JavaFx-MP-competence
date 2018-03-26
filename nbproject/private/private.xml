@@ -3,10 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/guina/OneDrive/Documents/NetBeansProjects/JavaFx-MP-competence/src/mpcompetences/controller/eleve/EleveOverviewController.java</file>
-            <file>file:/C:/Users/guina/OneDrive/Documents/NetBeansProjects/JavaFx-MP-competence/src/mpcompetences/controller/classe/ClasseOverviewController.java</file>
-            <file>file:/C:/Users/guina/OneDrive/Documents/NetBeansProjects/JavaFx-MP-competence/src/mpcompetences/controller/RootLayoutController.java</file>
-            <file>file:/C:/Users/guina/OneDrive/Documents/NetBeansProjects/JavaFx-MP-competence/src/mpcompetences/MainApp.java</file>
+            <file>file:/C:/Users/Paul/Documents/NetBeansProjects/JavaFx-MP-competence/src/mpcompetences/model/Eleve.java</file>
+            <file>file:/C:/Users/Paul/Documents/NetBeansProjects/JavaFx-MP-competence/src/mpcompetences/controller/eleve/EleveOverviewController.java</file>
+            <file>file:/C:/Users/Paul/Documents/NetBeansProjects/JavaFx-MP-competence/src/mpcompetences/controller/classe/ClasseOverviewController.java</file>
         </group>
     </open-files>
 </project-private>

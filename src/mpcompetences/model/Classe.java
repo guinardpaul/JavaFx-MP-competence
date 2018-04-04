@@ -18,37 +18,42 @@ public class Classe {
     private final StringProperty nomClasse;
     private final StringProperty cycle;
 
-    public Classe () {
+    public Classe() {
         this(null, null);
     }
 
-    public Classe (String nomClasse, String cycle) {
+    public Classe(String nomClasse, String cycle) {
         this.nomClasse = new SimpleStringProperty(nomClasse);
         this.cycle = new SimpleStringProperty(cycle);
     }
 
-    public String getCycle () {
+    public String getCycle() {
         return cycle.get();
     }
 
-    public void setCycle (String value) {
+    public void setCycle(String value) {
         cycle.set(value);
     }
 
-    public StringProperty cycleProperty () {
+    public StringProperty cycleProperty() {
         return cycle;
     }
 
-    public String getNomClasse () {
+    public String getNomClasse() {
         return nomClasse.get();
     }
 
-    public void setNomClasse (String value) {
+    public void setNomClasse(String value) {
         nomClasse.set(value);
     }
 
-    public StringProperty nomClasseProperty () {
+    public StringProperty nomClasseProperty() {
         return nomClasse;
+    }
+
+    @Override
+    public String toString() {
+        return nomClasse.getValue();
     }
 
 }

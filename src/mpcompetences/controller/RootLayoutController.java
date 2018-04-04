@@ -41,8 +41,7 @@ public class RootLayoutController {
     @FXML
     private BottomNavigationButton resultatMenuButton;
 
-    public RootLayoutController () {
-        fileHandler = new FileHandler();
+    public RootLayoutController() {
     }
 
     /**
@@ -50,12 +49,12 @@ public class RootLayoutController {
      *
      * @param mainApp
      */
-    public void setMainApp (MainApp mainApp) {
+    public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
         handleMenuClasse();
     }
 
-    public void setMenuButtonSelected (String buttonName) {
+    public void setMenuButtonSelected(String buttonName) {
         if (buttonName == BUTTONNAME.Eleve.getNom()) {
             eleveMenuButton.setSelected(true);
         } else if (buttonName == BUTTONNAME.Classe.getNom()) {
@@ -71,11 +70,11 @@ public class RootLayoutController {
      * Initializes the controller class.
      */
     @FXML
-    public void initialize () {
+    public void initialize() {
     }
 
     @FXML
-    private void handleMenuClasse () {
+    private void handleMenuClasse() {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(this.getClass().getResource(VIEWS_DIR + "classe/ClasseOverview.fxml"));
@@ -94,7 +93,7 @@ public class RootLayoutController {
     }
 
     @FXML
-    private void handleMenuEleve () {
+    private void handleMenuEleve() {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(this.getClass().getResource(VIEWS_DIR + "eleve/EleveOverview.fxml"));
@@ -111,7 +110,7 @@ public class RootLayoutController {
     }
 
     @FXML
-    private void handleMenuCompetence () {
+    private void handleMenuCompetence() {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(this.getClass().getResource(VIEWS_DIR + "competence/CompetenceOverview.fxml"));
@@ -128,7 +127,7 @@ public class RootLayoutController {
     }
 
     @FXML
-    private void handleMenuResultat () {
+    private void handleMenuResultat() {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(this.getClass().getResource(VIEWS_DIR + "resultat/ResultatOverview.fxml"));
@@ -148,7 +147,7 @@ public class RootLayoutController {
      * Opens a FileChooser to let the user select an address book to load.
      */
     @FXML
-    private void handleOpen () {
+    private void handleOpen() {
         FileChooser fileChooser = new FileChooser();
 
         // Set extension filter
@@ -169,7 +168,7 @@ public class RootLayoutController {
      * open file, the "save as" dialog is shown.
      */
     @FXML
-    private void handleSave () {
+    private void handleSave() {
         File classeFile = fileHandler.getFilePath();
         if (classeFile != null) {
             fileHandler.saveClasseDataToFile(classeFile);
@@ -178,7 +177,7 @@ public class RootLayoutController {
         }
     }
 
-    private void handleSaveAs () {
+    private void handleSaveAs() {
         FileChooser fileChooser = new FileChooser();
 
         // Set extension filter
@@ -199,8 +198,12 @@ public class RootLayoutController {
     }
 
     @FXML
-    private void handleClose () {
+    private void handleClose() {
         System.exit(0);
+    }
+
+    public void setFileHandler(FileHandler fileHandler) {
+        this.fileHandler = fileHandler;
     }
 
 }

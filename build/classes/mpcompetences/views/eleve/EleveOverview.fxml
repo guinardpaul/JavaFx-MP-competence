@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -10,13 +11,14 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mpcompetences.controller.eleve.EleveOverviewController">
+<AnchorPane id="AnchorPane" prefHeight="574.0" prefWidth="849.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mpcompetences.controller.eleve.EleveOverviewController">
    <children>
       <SplitPane dividerPositions="0.5066889632107023" layoutX="168.0" layoutY="70.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <AnchorPane maxHeight="600.0" prefHeight="600.0" prefWidth="425.0">
                <children>
-                  <TableView fx:id="eleveTableView" layoutX="14.0" layoutY="40.0" prefHeight="398.0" prefWidth="299.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <ChoiceBox fx:id="selecteClasse" prefWidth="150.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="10.0" />
+                  <TableView fx:id="eleveTableView" layoutY="47.0" prefHeight="572.0" prefWidth="425.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
                     <columns>
                       <TableColumn fx:id="nomColumn" prefWidth="75.0" text="Nom" />
                       <TableColumn fx:id="prenomColumn" prefWidth="75.0" text="Prénom" />
@@ -28,7 +30,7 @@
                   </TableView>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="397.0" prefWidth="273.0">
                <children>
                   <GridPane layoutX="10.0" layoutY="45.0" prefHeight="116.0" prefWidth="271.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="45.0">
                     <columnConstraints>

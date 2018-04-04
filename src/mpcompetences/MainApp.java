@@ -5,7 +5,6 @@
  */
 package mpcompetences;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,30 +33,28 @@ public class MainApp extends Application {
     private FileHandler fileHandler;
     private final ObservableList<Classe> classeData = FXCollections.observableArrayList();
 
-    public MainApp () {
+    public MainApp() {
         fileHandler = new FileHandler();
 
         classeData.add(new Classe("6°", CYCLE.Cycle3.getNom()));
         classeData.add(new Classe("5°", CYCLE.Cycle3.getNom()));
         classeData.add(new Classe("3°", CYCLE.Cycle4.getNom()));
-
     }
 
-    public ObservableList<Classe> getClasseData () {
+    public ObservableList<Classe> getClasseData() {
         return classeData;
     }
 
     @Override
-    public void start (Stage primaryStage) {
+    public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("MP-Competences");
         this.primaryStage.setMaximized(true);
 
         initRootLayout();
-
     }
 
-    private void initRootLayout () {
+    private void initRootLayout() {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(this.getClass().getResource(VIEWS_DIR + "RootLayout.fxml"));
@@ -69,6 +66,7 @@ public class MainApp extends Application {
             // Give the controller access to the main app.
             RootLayoutController controller = loader.getController();
             controller.setMainApp(this);
+            controller.setFileHandler(fileHandler);
 
             primaryStage.show();
         } catch (IOException ex) {
@@ -76,20 +74,20 @@ public class MainApp extends Application {
         }
 
         // Try to load last opened person file.
-        File file = fileHandler.getFilePath();
-        if (file != null) {
-            fileHandler.loadClasseDataFromFile(file);
-        }
+//        File file = fileHandler.getFilePath();
+//        if (file != null) {
+//            fileHandler.loadClasseDataFromFile(file);
+//        }
     }
 
     /**
      * @param args the command line arguments
      */
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         launch(args);
     }
 
-    public Window getPrimaryStage () {
+    public Window getPrimaryStage() {
         return primaryStage;
     }
 
